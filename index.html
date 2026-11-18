@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Clarivex Recall™ | Official Site</title>
+<style>
+  :root {
+    --navy: #0e2a47;
+    --blue: #1763b8;
+    --sky: #eaf3fc;
+    --green: #1f8a4c;
+    --gold: #ffc629;
+    --gold-dark: #e0a800;
+    --red: #c8102e;
+    --ink: #1c2530;
+    --muted: #5d6b7a;
+    --line: #dbe3ec;
+    --paper: #ffffff;
+    --trick: #b3001b;
+    --trick-bg: #fff4d6;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 18px/1.6 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; color: var(--navy); text-wrap: balance; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  /* urgency bar */
+  .urgency {
+    background: var(--red); color: #fff; text-align: center;
+    padding: 10px 16px; font-weight: 700; font-size: 16px;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .urgency .clock {
+    display: inline-block; background: #fff; color: var(--red);
+    padding: 1px 10px; border-radius: 4px; margin-left: 6px;
+    font-variant-numeric: tabular-nums; min-width: 68px;
+  }
+
+  header.site { border-bottom: 1px solid var(--line); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; gap: 12px; }
+  .logo { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: var(--navy); letter-spacing: -0.5px; }
+  .logo span { color: var(--blue); }
+  .logo small { display: block; font: 600 11px/1 -apple-system, "Segoe UI", sans-serif; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+  .phone { font-size: 15px; color: var(--muted); text-align: right; }
+  .phone b { display: block; color: var(--navy); font-size: 18px; }
+
+  /* hero */
+  .hero { background: linear-gradient(180deg, var(--sky), #fff); padding: 44px 0 36px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 36px; align-items: center; }
+  .kicker { display: inline-block; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 3px; }
+  .hero h1 { font-size: clamp(30px, 4.6vw, 46px); margin: 16px 0 14px; }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero p.lede { font-size: 20px; color: #33414f; margin: 0 0 18px; }
+  .ticks { list-style: none; padding: 0; margin: 0 0 24px; }
+  .ticks li { padding-left: 32px; position: relative; margin: 8px 0; font-weight: 600; }
+  .ticks li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--green); color: #fff; font-size: 14px; line-height: 22px; text-align: center; margin-top: 3px; }
+  .bottle { width: 100%; max-width: 280px; margin: 0 auto; display: block; filter: drop-shadow(0 18px 22px rgba(14,42,71,.25)); }
+
+  .btn {
+    display: inline-block; width: 100%; max-width: 460px; cursor: pointer;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark));
+    border: 1px solid #b98a00; border-radius: 8px;
+    color: #1d1600; font: 800 22px/1.2 -apple-system, "Segoe UI", sans-serif;
+    padding: 18px 22px; text-align: center; text-transform: uppercase; letter-spacing: .5px;
+    box-shadow: 0 4px 0 #a37a00, 0 10px 18px rgba(0,0,0,.15);
+  }
+  .btn small { display: block; font-size: 13px; font-weight: 600; text-transform: none; letter-spacing: 0; margin-top: 4px; }
+  .btn:hover { filter: brightness(1.05); }
+  .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #a37a00; }
+  .btn:focus-visible, button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+  /* press strip */
+  .press { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; background: #fff; }
+  .press .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 34px; }
+  .press .label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .press .outlet { font-family: Georgia, serif; font-size: 20px; color: #7b8794; font-weight: 700; white-space: nowrap; }
+  .press .outlet.sans { font-family: -apple-system, "Segoe UI", sans-serif; letter-spacing: -0.5px; font-weight: 800; }
+  .press .outlet.caps { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; }
+
+  section { padding: 48px 0; }
+  section h2 { font-size: clamp(26px, 3.6vw, 34px); text-align: center; margin: 0 0 28px; }
+
+  /* doctor */
+  .doctor { background: var(--sky); }
+  .doctor .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: grid; grid-template-columns: 130px 1fr; gap: 26px; align-items: center; max-width: 860px; margin: 0 auto; }
+  .avatar { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, #cfe0f3, #9fbfe2); display: grid; place-items: center; }
+  .avatar svg { width: 84px; height: 84px; }
+  blockquote { margin: 0 0 14px; font-family: Georgia, serif; font-size: 21px; line-height: 1.5; color: var(--navy); }
+  .sig b { color: var(--navy); }
+  .sig span { display: block; color: var(--muted); font-size: 15px; }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .stat { text-align: center; border: 1px solid var(--line); border-radius: 12px; padding: 26px 16px; }
+  .stat b { display: block; font: 700 52px/1 Georgia, serif; color: var(--blue); }
+  .stat span { display: block; margin-top: 10px; color: #33414f; font-weight: 600; }
+  .study { text-align: center; color: var(--muted); font-size: 14px; margin-top: 16px; }
+
+  /* reviews */
+  .reviews { background: #f7f9fc; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .review { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .stars { color: #f5a623; font-size: 20px; letter-spacing: 2px; }
+  .review h3 { font-size: 19px; margin: 8px 0; }
+  .review p { margin: 0 0 14px; font-size: 16.5px; color: #33414f; }
+  .who { font-size: 15px; font-weight: 700; color: var(--navy); }
+  .verified { display: inline-block; font-size: 12px; font-weight: 700; color: var(--green); border: 1px solid var(--green); border-radius: 3px; padding: 1px 6px; margin-left: 6px; }
+
+  /* offer */
+  .offer .box { max-width: 620px; margin: 0 auto; border: 3px dashed var(--red); border-radius: 14px; padding: 30px 26px; text-align: center; background: #fffdf5; }
+  .was { color: var(--muted); font-size: 22px; text-decoration: line-through; }
+  .now { font: 700 76px/1 Georgia, serif; color: var(--red); margin: 4px 0; }
+  .now sup { font-size: 34px; }
+  .save { display: inline-block; background: var(--green); color: #fff; font-weight: 700; padding: 4px 14px; border-radius: 20px; font-size: 15px; margin-bottom: 14px; }
+  .stock { color: var(--red); font-weight: 700; margin: 16px 0 18px; }
+  .stockbar { height: 10px; border-radius: 6px; background: #f0d9dd; overflow: hidden; max-width: 320px; margin: 8px auto 0; }
+  .stockbar i { display: block; height: 100%; background: var(--red); width: 18%; transition: width 1s; }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 26px; }
+  .badge { width: 132px; padding: 12px 8px; border: 2px solid var(--navy); border-radius: 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: var(--navy); line-height: 1.3; background: #fff; }
+  .badge b { display: block; font-size: 22px; margin-bottom: 2px; }
+
+  footer { background: var(--navy); color: #b9c7d6; font-size: 12px; line-height: 1.6; padding: 26px 0 90px; }
+  footer p { margin: 0 0 8px; }
+
+  /* "someone just bought" toast */
+  .toast {
+    position: fixed; left: 16px; bottom: 16px; z-index: 30; max-width: 310px;
+    background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.18); font-size: 14.5px; line-height: 1.4;
+    transform: translateY(160%); transition: transform .5s;
+  }
+  .toast.on { transform: none; }
+  .toast b { color: var(--navy); }
+  .toast small { color: var(--green); font-weight: 700; display: block; }
+
+  /* ---------- the reveal ---------- */
+  .peek {
+    position: fixed; right: 16px; bottom: 16px; z-index: 31; cursor: pointer;
+    background: #fff; color: var(--muted); border: 1px solid var(--line); border-radius: 20px;
+    font: 600 12px/1 -apple-system, "Segoe UI", sans-serif; padding: 9px 13px;
+  }
+  body.revealed .peek { background: var(--trick); color: #fff; border-color: var(--trick); font-size: 14px; }
+
+  .note {
+    display: none; text-align: left;
+    background: var(--trick-bg); border-left: 6px solid var(--trick); border-radius: 4px;
+    color: #2a1a00; font: 600 17px/1.5 -apple-system, "Segoe UI", sans-serif;
+    padding: 12px 16px; margin: 14px auto; max-width: 860px;
+    text-transform: none; letter-spacing: 0;
+  }
+  .note::before { content: "FAKE — "; color: var(--trick); font-weight: 800; }
+  body.revealed .note { display: block; }
+  body.revealed [data-trick] { outline: 3px dashed var(--trick); outline-offset: 5px; border-radius: 4px; }
+  body.revealed .urgency { background: #444; }
+
+  .banner { display: none; background: var(--trick); color: #fff; text-align: center; padding: 14px 16px; font-weight: 800; font-size: 19px; }
+  body.revealed .banner { display: block; }
+
+  dialog { border: 0; border-radius: 16px; padding: 0; max-width: 640px; width: calc(100% - 32px); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  dialog::backdrop { background: rgba(10, 20, 35, .82); }
+  .stop { padding: 34px 30px 30px; text-align: center; }
+  .stop .sign { width: 84px; height: 84px; margin: 0 auto 14px; border-radius: 50%; background: var(--trick); color: #fff; font: 800 50px/84px Georgia, serif; }
+  .stop h2 { font-size: 34px; color: var(--trick); margin: 0 0 12px; }
+  .stop p { font-size: 20px; margin: 0 0 14px; color: var(--ink); }
+  .stop ul { text-align: left; font-size: 18px; margin: 0 0 20px; padding-left: 22px; }
+  .stop li { margin: 6px 0; }
+  .stop .row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .stop button { cursor: pointer; font: 700 18px/1.2 -apple-system, "Segoe UI", sans-serif; padding: 14px 22px; border-radius: 8px; border: 2px solid var(--navy); background: #fff; color: var(--navy); }
+  .stop button.primary { background: var(--navy); color: #fff; }
+
+  @media (max-width: 760px) {
+    body { font-size: 17px; }
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero .art { order: -1; }
+    .bottle { max-width: 190px; }
+    .stats, .grid3 { grid-template-columns: 1fr; }
+    .doctor .card { grid-template-columns: 1fr; text-align: center; }
+    .avatar { margin: 0 auto; }
+    .phone { display: none; }
+    .now { font-size: 62px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .toast, .stockbar i { transition: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="banner">THIS WEBSITE IS FAKE. Every red-outlined part below was made up. Scroll down to see how.</div>
+
+<div class="urgency" data-trick>
+  ⚠ 50% OFF ENDS TODAY — offer expires in <span class="clock" id="clock">14:59</span>
+</div>
+<div class="note">This timer is a few lines of code. Reload the page and it starts over at 14:59. There is no deadline. It exists to rush you so you don't stop to think or ask anyone.</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo">Clari<span>vex</span>® Recall<small>Advanced Memory Science</small></div>
+    <div class="phone">Order by phone, 24/7<b>1-800-555-0142</b></div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Breakthrough Discovery</span>
+      <h1 data-trick>Neurologists Stunned: One Small Capsule Each Morning <em>Restores Lost Memory</em> in Just 21 Days</h1>
+      <div class="note">Anyone can type a headline. "Doctors stunned," "breakthrough," "restores" — no one checks these words before a page goes online. No pill or vitamin has been shown to restore memory lost to Alzheimer's or dementia.</div>
+      <p class="lede">The plant compound big drug companies hoped you would never hear about is now available without a prescription, for a limited time.</p>
+      <ul class="ticks">
+        <li>Remember names, faces and appointments again</li>
+        <li>Clears "brain fog" in as little as 7 days</li>
+        <li>100% natural. No prescription. No side effects.</li>
+      </ul>
+      <button class="btn" data-order>Yes! Restore My Memory<small>Claim your 50% discount before the timer runs out</small></button>
+    </div>
+    <div class="art">
+      <svg class="bottle" viewBox="0 0 260 372" role="img" aria-label="Bottle of Clarivex Recall capsules">
+        <defs>
+          <linearGradient id="glass" x1="0" x2="1"><stop offset="0" stop-color="#071a31"/><stop offset=".3" stop-color="#1b4f8c"/><stop offset=".62" stop-color="#123a6b"/><stop offset="1" stop-color="#06162a"/></linearGradient>
+          <linearGradient id="cap" x1="0" x2="1"><stop offset="0" stop-color="#b9c3ce"/><stop offset=".28" stop-color="#ffffff"/><stop offset=".6" stop-color="#e6ebf0"/><stop offset="1" stop-color="#a9b4c0"/></linearGradient>
+          <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#a87b1c"/><stop offset=".3" stop-color="#f6dc8b"/><stop offset=".6" stop-color="#d4a73a"/><stop offset="1" stop-color="#8d6512"/></linearGradient>
+          <linearGradient id="band" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2475cf"/><stop offset="1" stop-color="#14539c"/></linearGradient>
+          <linearGradient id="curve" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".3"/><stop offset=".16" stop-color="#000" stop-opacity="0"/><stop offset=".26" stop-color="#fff" stop-opacity=".22"/><stop offset=".36" stop-color="#fff" stop-opacity="0"/><stop offset=".78" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".34"/></linearGradient>
+          <linearGradient id="capsuleShade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient>
+          <clipPath id="bodyClip"><path d="M80 72H160C160 94 210 98 210 132V314a22 22 0 0 1-22 22H52a22 22 0 0 1-22-22V132C30 98 80 94 80 72Z"/></clipPath>
+        </defs>
+
+        <!-- cap -->
+        <rect x="70" y="8" width="100" height="52" rx="8" fill="url(#cap)" stroke="#9aa6b3"/>
+        <rect x="70" y="8" width="100" height="9" rx="4.5" fill="#fff" opacity=".7"/>
+        <g stroke="#a7b2be" stroke-width="1.6" stroke-linecap="round"><line x1="82" y1="22" x2="82" y2="54"/><line x1="92" y1="22" x2="92" y2="54"/><line x1="102" y1="22" x2="102" y2="54"/><line x1="112" y1="22" x2="112" y2="54"/><line x1="122" y1="22" x2="122" y2="54"/><line x1="132" y1="22" x2="132" y2="54"/><line x1="142" y1="22" x2="142" y2="54"/><line x1="152" y1="22" x2="152" y2="54"/><line x1="160" y1="22" x2="160" y2="54"/></g>
+        <rect x="76" y="58" width="88" height="6" rx="2" fill="#8894a1"/>
+
+        <!-- bottle and label -->
+        <g clip-path="url(#bodyClip)">
+          <rect x="30" y="64" width="180" height="272" fill="url(#glass)"/>
+          <rect x="30" y="140" width="180" height="160" fill="#fdfdfb"/>
+          <rect x="30" y="143" width="180" height="38" fill="url(#band)"/>
+          <rect x="30" y="140" width="180" height="3" fill="url(#gold)"/>
+          <rect x="30" y="181" width="180" height="2" fill="url(#gold)"/>
+          <rect x="30" y="297" width="180" height="3" fill="url(#gold)"/>
+          <text x="117" y="169" text-anchor="middle" textLength="112" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-size="19" font-weight="700" fill="#fff">CLARIVEX</text>
+          <text x="176" y="161" font-family="Arial, sans-serif" font-size="8" fill="#fff">®</text>
+          <text x="120" y="221" text-anchor="middle" textLength="118" lengthAdjust="spacingAndGlyphs" font-family="Georgia, 'Times New Roman', serif" font-size="40" font-weight="700" fill="#0e2a47">Recall</text>
+          <g stroke="#d4a73a" stroke-width="1"><line x1="46" y1="232" x2="60" y2="232"/><line x1="180" y1="232" x2="194" y2="232"/></g>
+          <text x="120" y="235" text-anchor="middle" textLength="112" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="7.5" font-weight="700" fill="#1763b8">ADVANCED MEMORY FORMULA</text>
+          <rect x="62" y="246" width="116" height="22" rx="11" fill="#c8102e"/>
+          <text x="120" y="260.5" text-anchor="middle" textLength="92" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="8.5" font-weight="700" fill="#fff">CLINICAL STRENGTH</text>
+          <text x="120" y="285" text-anchor="middle" textLength="136" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="7.2" fill="#5d6b7a">60 CAPSULES · DIETARY SUPPLEMENT</text>
+          <!-- curved-surface shading and highlight -->
+          <rect x="30" y="64" width="180" height="272" fill="url(#curve)"/>
+          <rect x="44" y="112" width="5" height="206" rx="2.5" fill="#fff" opacity=".28"/>
+        </g>
+
+        <!-- loose capsules -->
+        <g transform="translate(168 338) rotate(-16)">
+          <path d="M11 0H28V22H11a11 11 0 0 1 0-22Z" fill="#1763b8"/>
+          <path d="M28 0H45a11 11 0 0 1 0 22H28Z" fill="#f4f6f8"/>
+          <rect width="56" height="22" rx="11" fill="url(#capsuleShade)"/>
+          <rect width="56" height="22" rx="11" fill="none" stroke="#0e2a47" stroke-opacity=".25"/>
+        </g>
+        <g transform="translate(198 346) rotate(14)">
+          <path d="M11 0H28V22H11a11 11 0 0 1 0-22Z" fill="#f4f6f8"/>
+          <path d="M28 0H45a11 11 0 0 1 0 22H28Z" fill="#1763b8"/>
+          <rect width="56" height="22" rx="11" fill="url(#capsuleShade)"/>
+          <rect width="56" height="22" rx="11" fill="none" stroke="#0e2a47" stroke-opacity=".25"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="press">
+  <div class="wrap" data-trick>
+    <span class="label">As featured in</span>
+    <span class="outlet">The National Ledger</span>
+    <span class="outlet sans">HealthWire</span>
+    <span class="outlet caps">Morning America Today</span>
+    <span class="outlet">Senior Living Journal</span>
+  </div>
+  <div class="wrap"><div class="note">None of these news outlets exist — they are just words in different typefaces. Real scam pages go further and paste in the logos of real TV networks and newspapers without permission. A logo on a page is not proof of anything.</div></div>
+</div>
+
+<section class="doctor">
+  <div class="wrap">
+    <h2>"I Recommend It to My Own Patients"</h2>
+    <div class="card" data-trick>
+      <div class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 84 84"><circle cx="42" cy="30" r="17" fill="#fff"/><path d="M10 84c0-20 14-32 32-32s32 12 32 32z" fill="#fff"/><path d="M36 54l6 10 6-10" fill="none" stroke="#1763b8" stroke-width="3"/></svg>
+      </div>
+      <div>
+        <blockquote>"In 27 years of practice I have never seen results like this. Patients who could not recall their grandchildren's names are doing crossword puzzles again within weeks."</blockquote>
+        <div class="sig"><b>Dr. Alan R. Whitmore, MD</b><span>Board-Certified Neurologist · Former Director, Institute for Cognitive Health</span></div>
+      </div>
+    </div>
+    <div class="note">This doctor does not exist. The name, the title, the "institute" and the quote were all invented. Real scam pages add a stock photo of a man in a white coat, or an AI-generated face. A real doctor's recommendation comes from your own doctor, in person.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Clinically Proven Results</h2>
+    <div class="stats" data-trick>
+      <div class="stat"><b>94%</b><span>reported sharper recall within 21 days</span></div>
+      <div class="stat"><b>3×</b><span>faster word and name retrieval</span></div>
+      <div class="stat"><b>217,000+</b><span>satisfied customers nationwide</span></div>
+    </div>
+    <p class="study">Based on a 12-week double-blind study of 1,204 adults aged 60–88.</p>
+    <div class="note">There is no study. These numbers were chosen because they sound convincing. Notice there is no link, no journal name and no way to check — that is the sign.</div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <h2>Real Stories from Real Customers</h2>
+    <div class="grid3" data-trick>
+      <div class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>"I have my husband back"</h3>
+        <p>Frank was forgetting where he parked, then what day it was. Three weeks on Clarivex and he remembered our anniversary before I did.</p>
+        <div class="who">Dorothy M., 74 — Tulsa, OK <span class="verified">✓ Verified Buyer</span></div>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>"My doctor couldn't believe it"</h3>
+        <p>I was skeptical. But by the second bottle I was reading whole books again and beating my son at cards. Worth every penny.</p>
+        <div class="who">Harold P., 81 — Dayton, OH <span class="verified">✓ Verified Buyer</span></div>
+      </div>
+      <div class="review">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>"Wish I'd found it sooner"</h3>
+        <p>I ordered for my mother. Within a month she was calling me by name again. I cried. Don't wait like we did.</p>
+        <div class="who">Linda S., 58 — Mesa, AZ <span class="verified">✓ Verified Buyer</span></div>
+      </div>
+    </div>
+    <div class="note">All three reviews were written in about two minutes by the person who made this page. Dorothy, Harold and Linda are not real. "Verified Buyer" is just a green label typed next to the name — nobody verified anything.</div>
+  </div>
+</section>
+
+<section class="offer" id="offer">
+  <div class="wrap">
+    <h2>Today Only: Half Price</h2>
+    <div class="box">
+      <div data-trick>
+        <div class="was">Regular price $499.00</div>
+        <div class="now"><sup>$</sup>250</div>
+        <div class="save">YOU SAVE $249 (50%)</div>
+      </div>
+      <div class="note">The "$499 regular price" never existed. Showing a big crossed-out number makes $250 feel like a bargain. The ingredients in pills like this usually cost a few dollars.</div>
+      <div class="stock" data-trick>
+        Hurry — only <span id="left">9</span> bottles left at this price
+        <div class="stockbar"><i id="bar"></i></div>
+      </div>
+      <div class="note">This counter is programmed to drop while you watch, then stop at 3. There are no bottles and no warehouse. It is there to make you feel you'll miss out.</div>
+      <button class="btn" data-order>Rush My Order<small>Secure checkout · Free priority shipping</small></button>
+      <div class="badges" data-trick>
+        <div class="badge"><b>✚</b>FDA Registered Facility</div>
+        <div class="badge"><b>90</b>Day Money-Back Guarantee</div>
+        <div class="badge"><b>🔒</b>Secure 256-bit Checkout</div>
+      </div>
+      <div class="note">Anyone can draw a badge. The FDA does not approve or test supplements before they are sold. A "money-back guarantee" is worth nothing when the seller disappears — and many of these sites quietly sign you up for a monthly charge.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>DEMONSTRATION PAGE — NOT A REAL PRODUCT.</b> Clarivex Recall does not exist and nothing can be bought here. This page was built to show how easily convincing health advertising can be faked. Every name, quote, statistic, review, news outlet, price and badge on this page is invented. Any resemblance to a real product, company or person is coincidental.</p>
+    <p>No pill, vitamin or supplement has been shown to cure or reverse Alzheimer's disease or dementia. Talk to your own doctor before buying anything for memory.</p>
+    <p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Results not typical.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" data-trick aria-hidden="true"></div>
+
+<button class="peek" id="peek" aria-pressed="false">Is this real?</button>
+
+<dialog id="stop" aria-labelledby="stopTitle">
+  <div class="stop">
+    <div class="sign" aria-hidden="true">!</div>
+    <h2 id="stopTitle">Stop. This website is fake.</h2>
+    <p>There is no Clarivex Recall. No pill was going to be sent. If this had been a real scam, you would be typing in your card number right now.</p>
+    <ul>
+      <li>The doctor does not exist.</li>
+      <li>The reviews were made up in two minutes.</li>
+      <li>The countdown timer restarts every time.</li>
+      <li>The whole page took less than an hour to make.</li>
+    </ul>
+    <p><b>If someone who cares about you can build this, so can a stranger who wants your money.</b></p>
+    <div class="row">
+      <button class="primary" id="showTricks">Show me every trick</button>
+      <button id="closeStop">Go back</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // 1. The "deadline": counts down from 14:59 and quietly starts again.
+  const clock = document.getElementById('clock');
+  let secs = 14 * 60 + 59;
+  setInterval(() => {
+    secs = secs > 0 ? secs - 1 : 14 * 60 + 59;
+    clock.textContent = String(Math.floor(secs / 60)).padStart(2, '0') + ':' + String(secs % 60).padStart(2, '0');
+  }, 1000);
+
+  // 2. The "stock": drops from 9 to 3, then stops. Nothing is being sold.
+  const left = document.getElementById('left'), bar = document.getElementById('bar');
+  let stock = 9;
+  setInterval(() => {
+    if (stock > 3) { stock--; left.textContent = stock; bar.style.width = (stock * 2) + '%'; }
+  }, 11000);
+
+  // 3. The "someone just bought" pop-up: a random name and town from a list.
+  const names = ['Margaret', 'Robert', 'Patricia', 'William', 'Barbara', 'Richard', 'Carol', 'Eugene', 'Shirley', 'Donald'];
+  const towns = ['Columbus, OH', 'Sarasota, FL', 'Scottsdale, AZ', 'Knoxville, TN', 'Spokane, WA', 'Des Moines, IA', 'Albany, NY', 'Fresno, CA'];
+  const toast = document.getElementById('toast');
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  function pop() {
+    const revealed = document.body.classList.contains('revealed');
+    const n = 1 + Math.floor(Math.random() * 3);
+    toast.innerHTML = '<b>' + pick(names) + ' from ' + pick(towns) + '</b> just ordered ' + n + (n === 1 ? ' bottle' : ' bottles') +
+      (revealed ? '<small style="color:#b3001b">FAKE — a random name and town picked from a list</small>' : '<small>✓ ' + (2 + Math.floor(Math.random() * 9)) + ' minutes ago</small>');
+    toast.classList.add('on');
+    setTimeout(() => toast.classList.remove('on'), 5000);
+  }
+  setTimeout(pop, 6000);
+  setInterval(pop, 14000);
+
+  // The reveal. The order buttons never lead to a checkout — there isn't one.
+  const stop = document.getElementById('stop'), peek = document.getElementById('peek');
+  function reveal(on) {
+    document.body.classList.toggle('revealed', on);
+    peek.textContent = on ? 'Hide the labels' : 'Is this real?';
+    peek.setAttribute('aria-pressed', on);
+    if (on) window.scrollTo({ top: 0 });
+  }
+  document.querySelectorAll('[data-order]').forEach(b => b.addEventListener('click', () => stop.showModal()));
+  document.getElementById('closeStop').addEventListener('click', () => stop.close());
+  document.getElementById('showTricks').addEventListener('click', () => { stop.close(); reveal(true); });
+  peek.addEventListener('click', () => reveal(!document.body.classList.contains('revealed')));
+</script>
+</body>
+</html>
